@@ -5,6 +5,7 @@ public class day {
 public static int health(int health){
 		
 		//TODO: MAKE A COMPUTER INTERFACE
+		//TODO: MAKE CULTS
 	// MAKE VIM
 		if (health < 0) System.out.println("You have died!");
 		return 0;
@@ -14,21 +15,25 @@ public static int health(int health){
 		// TODO Auto-generated method stub
 		 Scanner userInput = new Scanner(System.in);
 		 Scanner playerInput = new Scanner(System.in);
+		 Scanner playerInp = new Scanner(System.in);
 		 Scanner userIn = new Scanner(System.in);
+		 boolean cave = false;
+         boolean alley = false;
+         boolean battle = false;
+         boolean sewer = false;
+         boolean prisonEscape = false;
 	        System.out.println("Choose a class\n1: Normie \n2: Itchsmaele \n3: Wißord");
 	         
 	        // Get an integer from the user
 	        int choice = userInput.nextInt();
+	        
 	       // int computer = userIn.nextInt();
 	          String playerClass;
 	          String playerA;
 	          String playerAn;
 	          String playerAns;
 	          String playerAnse;
-	          boolean cave = false;
-	          boolean alley = false;
-	          boolean battle = false;
-	          boolean sewer = false;
+	          
 	        // Start switch statement using choice variable
 	        switch(choice){
 	        case 1:
@@ -186,7 +191,39 @@ public static int health(int health){
            		  //calculator code 
            		  
            		  //}
-           		  
+           		  //case 0:
+           		  //do this instead of exiting.
+           		  System.out.println("A guard finds you. He says that you are now being sent to "
+           		  		+ "\n prison for Property Destruction. You attempt to run \n but get knocked out by the"
+           		  		+ "guard."
+           		  		+ "\n");
+           		  System.out.println("You wake up in a prison bus You see two doors behind you. You have three options"
+           		  		+ "\n1:look outside"
+           		  		+ "\n2: look to the left"
+           		  		+ "\n3: look to the right"
+           		  		+ "\n4: escape!");
+           		int prison = playerInp.nextInt();
+           		  switch(prison){
+           		  case 1:
+           			  System.out.println("You see the desert outside");
+           			  break;
+           		  case 2:
+           			System.out.println("You see two prisoners sitting on the seats of the bus.");
+           			break;
+           		  case 3:
+           			System.out.println("You see two other prisoners sitting on the seats of the bus.");
+           			prisonEscape = true;
+           			break;
+
+           		  }
+           		  if (prisonEscape = true){
+           			  System.out.println("You attempt to fall through the doors on the back.");
+           			  System.out.println("Success! You are now alone in the barren desert. You find a revolver full of bullets."
+           			  		+ "You find a revolver full of ammo.");
+           			  //You see a group of traders [dopesmoker image info here]
+           			  //make duels
+           		  }
+           		
      	        }
      	        else{
      	        	System.out.println("You choose to stay out of the sewers.");
