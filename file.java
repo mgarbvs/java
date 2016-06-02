@@ -1,3 +1,4 @@
+package project;
 import java.util.Random;
 import java.util.Scanner;
 public class day {
@@ -16,13 +17,16 @@ public static int health(int health){
 	         
 	        // Get an integer from the user
 	        int choice = userInput.nextInt();
+	        int computer = userInput.nextInt();
 	          String playerClass;
 	          String playerA;
 	          String playerAn;
 	          String playerAns;
+	          String playerAnse;
 	          boolean cave = false;
 	          boolean alley = false;
 	          boolean battle = false;
+	          boolean sewer = false;
 	        // Start switch statement using choice variable
 	        switch(choice){
 	        case 1:
@@ -156,7 +160,7 @@ public static int health(int health){
           		// }
           	  }
           	  else if(playerAn.equalsIgnoreCase("N")){
-          		  
+          		  System.out.println("The man challanges you to a duel!");
           	  }
       			   
       		        }
@@ -164,9 +168,32 @@ public static int health(int health){
       			  System.out.println("You are now in an alley.");
       			  System.out.println("You see a manhole. Go down into the sewers?");
       			  //sewer code here
+      			  
+      			 System.out.println("Y/N");
+     	        playerAnse= playerInput.nextLine();
+     	        if(playerAnse.equalsIgnoreCase("Y")){
+           		  System.out.println("You choose to go into the sewers.");
+           		  sewer = true;
+           		  System.out.println("You see a computer on the side of the sewers.\n\n");
+           		  System.out.println("You gaze at the screen:"
+           		  		+ "\n"
+           		  		+ "\n"
+           		  		+ "\n"
+           		  		+ "Welcome to CMACS CALCULATOR!");
+           		  switch(computer){
+           		  //calculator code here!!!
+           		  
+           		  }
+           		  
+     	        }
+     	        else{
+     	        	System.out.println("You choose to stay out of the sewers.");
+     	        	//put back options from beginning.
+     	        	//you can do something with booleans for this.
+     	        }
       		  }
       		  
-      		  }
+	}
 	        
 	}
 
