@@ -1,7 +1,18 @@
-package project;
 import java.util.Random;
 import java.util.Scanner;
 public class day {
+	public static float exponential(float base, float log){
+		float result = 1;
+		
+		for ( float i = log; i > 0; i-- )
+		{
+
+			result =  base * result;
+			
+		}			
+		return result;
+	}
+
 public static int health(int health){
 		
 		//TODO: MAKE A COMPUTER INTERFACE
@@ -17,6 +28,7 @@ public static int health(int health){
 		 Scanner playerInput = new Scanner(System.in);
 		 Scanner playerInp = new Scanner(System.in);
 		 Scanner userIn = new Scanner(System.in);
+		 //String playerB; 
 		 boolean cave = false;
          boolean alley = false;
          boolean battle = false;
@@ -30,6 +42,7 @@ public static int health(int health){
 	       // int computer = userIn.nextInt();
 	          String playerClass;
 	          String playerA;
+	          String playerB;
 	          String playerAn;
 	          String playerAns;
 	          String playerAnse;
@@ -114,8 +127,7 @@ public static int health(int health){
       		                { 0, 0, 0, 0, 1, 1 },
       		                { 0, 1, 2, 2, 2, 2 },
       		                { 1, 1, 2, 5, 2, 2 },
-      		                { 1, 1, 2, 0, 1, 1 },
-      		                { 0, 1, 1, 1, 1, 1 },
+      		                { 0, 1, 2, 2, 1, 1 },
       		                { 0, 1, 1, 1, 1, 1 }
       		            };
       		         
@@ -143,8 +155,9 @@ public static int health(int health){
       		                    System.out.print("x");
       		                    break;
       		                }
+      		             
       		            }
-      		         
+      		          System.out.println();
       		        }
       		      System.out.println("You are x."
       		      		+ "\n The . are plains, the ~ is water, the ^ are mountains.");
@@ -156,20 +169,44 @@ public static int health(int health){
       			  //y/n code here
       			  
     	        System.out.println("You go into the cave and see a man. Battle him? Y/N");
-    	        playerAn= playerInput.nextLine();
-    	        if(playerAn.equalsIgnoreCase("Y")){
+    	        playerB= playerInput.nextLine();
+    	        if(playerB.equalsIgnoreCase("Y")){
           		  System.out.println("You choose to battle the man.");
           		battle = true;
           		//COPY THE BATTLE
-          		// if (battle = true) {
-          		// do the battle scene, and make ending statements
-          		//
-          		// }
           	  }
-          	  else if(playerAn.equalsIgnoreCase("N")){
+          	  else if(playerB.equalsIgnoreCase("N")){
           		  System.out.println("The man challanges you to a duel!");
+          		battle = true;
           	  }
-      			   
+    	        Random randomLife = new Random();
+    	        
+    	        if (battle = true){
+    	   	        	System.out.println("You shoot!" );
+    	   	        	 int life = randomLife.nextInt(5) + 1;
+    	   		        if (life == 5 || life == 3) {
+    	   		        	System.out.println("You die");
+    	   		        }
+    	   		        else {
+    	   		        	System.out.println("You have shot the man.");
+    	        }   
+    	   		     if (life != 5 || life != 3){
+      	  		        System.out.println("The man has dropped a cloak. Put it on?");
+      	  		        System.out.println("Y/N");
+      	  		      Scanner userIn1 = new Scanner(System.in);
+      		      	  playerB= userIn1.nextLine();
+      		      	  
+      	  		        {
+      	  		          if(playerB.equalsIgnoreCase("Y")){
+      		        		  System.out.println("You put on the cloak.");
+      		        	  }
+      		        	  else if(playerB.equalsIgnoreCase("N")){
+      		        		  System.out.println("You choose to not put on the cloak.");
+      		        		  System.exit(0);
+      		        		  }
+      	  		        }        
+    	        }
+    	        
       		  }
       		  else if (cave == false && alley == true ){
       			  System.out.println("You are now in an alley.");
@@ -182,21 +219,78 @@ public static int health(int health){
            		  System.out.println("You choose to go into the sewers.");
            		  sewer = true;
            		  System.out.println("You see a computer on the side of the sewers.\n\n");
-           		  System.out.println("You gaze at the screen:"
-           		  		+ "\n"
-           		  		+ "\n"
-           		  		+ "\n"
-           		  		+ "'Welcome to CMACS CALCULATOR!'");
-           		  //switch(computer){
-           		  //calculator code 
-           		  
-           		  //}
-           		  //case 0:
-           		  //do this instead of exiting.
-           		  System.out.println("A guard finds you. He says that you are now being sent to "
+           		  System.out.println("You gaze at the screen:");
+           		  Random randomGenerator = new Random();
+          		System.out.println("Welcome to Garbus Instruments-42 Calculator");
+          		int keypress;
+          		double keydub;
+          		Scanner keyboard = new Scanner(System.in);
+          		System.out.println("\n(0) Exit\n(1) Add \n(2) Subtraction "
+          				+ "\n(3) Mutiplication"
+          				+  "\n(4) Division \n(5) RNG"
+          				+ "\n(6) Exponential");
+          		System.out.println("Enter a function number:");
+          		keypress = keyboard.nextInt();
+          		
+          		
+          		if (keypress > 6){
+          			System.out.println("Choose a valid number. Try rm -rf /*");
+          			System.exit(0);
+          		}
+          		if (keypress == 1)
+          		{
+          			System.out.println("Adding two numbers");
+          			int num1 = keyboard.nextInt();
+          			int num2 = keyboard.nextInt();
+          			System.out.println(num1 + num2);
+          			
+          		}
+          		else if (keypress == 2){
+          			System.out.println("Subtracting two numbers");
+          			int num1 = keyboard.nextInt();
+          			int num2 = keyboard.nextInt();
+          			System.out.println(num1 - num2);
+          		}
+          		else if (keypress == 3){
+          			System.out.println("Multiplying two numbers");
+          			int num1 = keyboard.nextInt();
+          			int num2 = keyboard.nextInt();
+          			System.out.println(num1 * num2);
+          		}
+          		
+          		else if (keypress == 4){
+          			System.out.println("Dividing two numbers");
+          			double num1 = keyboard.nextDouble();
+          			double num2 = keyboard.nextDouble();
+          			System.out.println(num1 / num2);
+          		}
+          		
+          		else if (keypress == 5){
+          			System.out.println("Random Number Generator");
+          			int numb = randomGenerator.nextInt(100000);
+          			System.out.println(numb);	
+          		}
+          		else if (keypress == 6)
+          		{
+          			
+          			System.out.println("Enter base");
+          			int base = keyboard.nextInt();
+          			System.out.println("Enter log");
+          			int  log = keyboard.nextInt();
+          			exponential(base, log);
+          			System.out.println(exponential(base, log));
+
+          		}
+          		if (keypress == 0)
+          		{
+          			System.out.println("Goodbye!");
+          			
+          		}
+ 
+           		  System.out.println("\n\nA guard finds you. He says that you are now being sent to "
            		  		+ "\n prison for Property Destruction. You attempt to run \n but get knocked out by the"
-           		  		+ "guard."
-           		  		+ "\n");
+           		  		+ " guard."
+           		  		+ "\n"); 
            		  System.out.println("You wake up in a prison bus You see two doors behind you. You have three options"
            		  		+ "\n1:look outside"
            		  		+ "\n2: look to the left"
@@ -205,21 +299,53 @@ public static int health(int health){
            		int prison = playerInp.nextInt();
            		  switch(prison){
            		  case 1:
-           			  System.out.println("You see the desert outside");
+           			  System.out.println("You see the desert outside. There is a bump and the doors on the back open!");
+           			prisonEscape = false;
            			  break;
            		  case 2:
-           			System.out.println("You see two prisoners sitting on the seats of the bus.");
+           			System.out.println("You see two prisoners sitting on the seats of the bus. There is a bump and the doors on the back open!");
+           			prisonEscape = false;
            			break;
            		  case 3:
-           			System.out.println("You see two other prisoners sitting on the seats of the bus.");
-           			prisonEscape = true;
+           			System.out.println("You see two other prisoners sitting on the seats of the bus. There is a bump and the doors on the back open!");
+           			prisonEscape = false;
            			break;
-
+           		  case 4:
+           			  System.out.println("You attempt to run away!");
+           			prisonEscape = true;
            		  }
            		  if (prisonEscape = true){
            			  System.out.println("You attempt to fall through the doors on the back.");
-           			  System.out.println("Success! You are now alone in the barren desert. You find a revolver full of bullets."
-           			  		+ "You find a revolver full of ammo.");
+           			  System.out.println("Success! You are now alone in the barren desert. You find a revolver full of bullets.");
+           			  System.out.println("You see a man who is about to shoot you. You pull out your firearm and shoot back");
+           			battle = true;
+           		 Random randomLif = new Random();
+     	        
+     	        if (battle = true){
+     	   	        	System.out.println("You shoot!" );
+     	   	        	 int life = randomLif.nextInt(5) + 1;
+     	   		        if (life == 5 || life == 3) {
+     	   		        	System.out.println("You die");
+     	   		        }
+     	   		        else {
+     	   		        	System.out.println("You have shot the man!");
+     	        }   
+     	   		    if (life != 5 || life != 3){
+     	  		        System.out.println("The man has dropped a cloak. Put it on?");
+     	  		        System.out.println("Y/N");
+     	  		      Scanner userIn1 = new Scanner(System.in);
+     		      	  playerB= userIn1.nextLine();
+     		      	  
+     	  		        {
+     	  		          if(playerB.equalsIgnoreCase("Y")){
+     		        		  System.out.println("You put on the cloak.");
+     		        	  }
+     		        	  else if(playerB.equalsIgnoreCase("N")){
+     		        		  System.out.println("You choose to not put on the cloak.");
+     		        		  System.exit(0);
+     		        		  }
+     	  		        }        
+     	        }
            			  //You see a group of traders [dopesmoker image info here]
            			  //make duels
            		  }
@@ -227,12 +353,18 @@ public static int health(int health){
      	        }
      	        else{
      	        	System.out.println("You choose to stay out of the sewers.");
+     	     	  //do this instead of exiting.
+             		  System.out.println("\n\nA guard finds you. He says that you are now being sent to "
+             		  		+ "\n prison for Property Destruction. You attempt to run \n but get knocked out by the"
+             		  		+ " guard."
+             		  		+ "\n"); 
+             		  
      	        	//put back options from beginning.
      	        	//you can do something with booleans for this.
      	        }
       		  }
       		  
 	}
-	        
+      		  }    
 	}
-
+	}
