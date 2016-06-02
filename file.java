@@ -10,14 +10,16 @@ public static int health(int health){
 		return 0;
 	}
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
 		 Scanner userInput = new Scanner(System.in);
 		 Scanner playerInput = new Scanner(System.in);
+		 Scanner userIn = new Scanner(System.in);
 	        System.out.println("Choose a class\n1: Normie \n2: Itchsmaele \n3: Wißord");
 	         
 	        // Get an integer from the user
 	        int choice = userInput.nextInt();
-	        int computer = userInput.nextInt();
+	       // int computer = userIn.nextInt();
 	          String playerClass;
 	          String playerA;
 	          String playerAn;
@@ -163,7 +165,7 @@ public static int health(int health){
           		  System.out.println("The man challanges you to a duel!");
           	  }
       			   
-      		        }
+      		  }
       		  else if (cave == false && alley == true ){
       			  System.out.println("You are now in an alley.");
       			  System.out.println("You see a manhole. Go down into the sewers?");
@@ -179,11 +181,11 @@ public static int health(int health){
            		  		+ "\n"
            		  		+ "\n"
            		  		+ "\n"
-           		  		+ "Welcome to CMACS CALCULATOR!");
-           		  switch(computer){
-           		  //calculator code here!!!
+           		  		+ "'Welcome to CMACS CALCULATOR!'");
+           		  //switch(computer){
+           		  //calculator code 
            		  
-           		  }
+           		  //}
            		  
      	        }
      	        else{
