@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class day {
 public static int health(int health){
 		
-		
+		//TODO: MAKE A COMPUTER INTERFACE
+	// MAKE VIM
 		if (health < 0) System.out.println("You have died!");
 		return 0;
 	}
@@ -21,6 +22,7 @@ public static int health(int health){
 	          String playerAns;
 	          boolean cave = false;
 	          boolean alley = false;
+	          boolean battle = false;
 	        // Start switch statement using choice variable
 	        switch(choice){
 	        case 1:
@@ -142,7 +144,20 @@ public static int health(int health){
     	      	  }
       			  //y/n code here
       			  
-      			  
+    	        System.out.println("You go into the cave and see a man. Battle him? Y/N");
+    	        playerAn= playerInput.nextLine();
+    	        if(playerAn.equalsIgnoreCase("Y")){
+          		  System.out.println("You choose to battle the man.");
+          		battle = true;
+          		//COPY THE BATTLE
+          		// if (battle = true) {
+          		// do the battle scene, and make ending statements
+          		//
+          		// }
+          	  }
+          	  else if(playerAn.equalsIgnoreCase("N")){
+          		  
+          	  }
       			   
       		        }
       		  else if (cave == false && alley == true ){
@@ -154,5 +169,4 @@ public static int health(int health){
       		  }
 	        
 	}
-
 
