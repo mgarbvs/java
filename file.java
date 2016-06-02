@@ -27,6 +27,7 @@ public static int health(int health){
 		 Scanner userInput = new Scanner(System.in);
 		 Scanner playerInput = new Scanner(System.in);
 		 Scanner playerInp = new Scanner(System.in);
+		 Scanner playerTnput = new Scanner(System.in);
 		 Scanner userIn = new Scanner(System.in);
 		 //String playerB; 
 		 boolean cave = false;
@@ -34,6 +35,7 @@ public static int health(int health){
          boolean battle = false;
          boolean sewer = false;
          boolean prisonEscape = false;
+         int health = 100;
 	        System.out.println("Choose a class\n1: Normie \n2: Itchsmaele \n3: Wißord");
 	         
 	        // Get an integer from the user
@@ -46,6 +48,7 @@ public static int health(int health){
 	          String playerAn;
 	          String playerAns;
 	          String playerAnse;
+	          String playerTrade;
 	          
 	        // Start switch statement using choice variable
 	        switch(choice){
@@ -120,8 +123,10 @@ public static int health(int health){
       			  System.out.println("You are now in the cave.");
       			  System.out.println("You have a map. Look at it? y/n");  
       			playerAns= playerInput.nextLine(); 
-      			
-    	        if(playerAn.equalsIgnoreCase("y")){
+      			 if(playerAns.equalsIgnoreCase("n")){
+      				 System.out.println("You do not look at the map.");
+      			 }
+    	        if(playerAns.equalsIgnoreCase("y")){
     	        	int[][] map =
       		            {
       		                { 0, 0, 0, 0, 1, 1 },
@@ -133,25 +138,25 @@ public static int health(int health){
       		         
       		        // TODO: Randomly generate a map
       		         
-      		        // Draw the map
+      		        // Draws map
       		        for (int row = 0; row < map.length; row++){
       		            for(int col = 0; col < map[row].length; col++){
-      		                // Check each spot on the map and print the appropriate graphic
+      		               
       		                switch(map[row][col]){
       		                case 0:
-      		                    // Water
+      		                   
       		                    System.out.print("~ ");
       		                    break;
       		                case 1:
-      		                    // Plains
+      		                   
       		                    System.out.print(". ");
       		                    break;
       		                case 2:
-      		                    // Mountain
+      		                
       		                    System.out.print("^ ");
       		                    break;
       		                case 5:
-      		                    // Water
+      		                    
       		                    System.out.print("x");
       		                    break;
       		                }
@@ -163,17 +168,16 @@ public static int health(int health){
       		      		+ "\n The . are plains, the ~ is water, the ^ are mountains.");
       		      
     	      	  }
-    	      	  else if(playerAn.equalsIgnoreCase("N")){
-    	      		  System.out.println("You do not look at the map.");
-    	      	  }
-      			  //y/n code here
+    	      	 // else {
+    	      	//	  System.out.println("You do not look at the map.");
+    	      	 // }
+      			 
       			  
     	        System.out.println("You go into the cave and see a man. Battle him? Y/N");
     	        playerB= playerInput.nextLine();
     	        if(playerB.equalsIgnoreCase("Y")){
           		  System.out.println("You choose to battle the man.");
           		battle = true;
-          		//COPY THE BATTLE
           	  }
           	  else if(playerB.equalsIgnoreCase("N")){
           		  System.out.println("The man challanges you to a duel!");
@@ -182,29 +186,14 @@ public static int health(int health){
     	        Random randomLife = new Random();
     	        
     	        if (battle = true){
-    	   	        	System.out.println("You shoot!" );
+    	   	        	System.out.println("You jump at him with your bare hands!" );
     	   	        	 int life = randomLife.nextInt(5) + 1;
     	   		        if (life == 5 || life == 3) {
     	   		        	System.out.println("You die");
     	   		        }
     	   		        else {
-    	   		        	System.out.println("You have shot the man.");
+    	   		        	System.out.println("You beaten the man.");
     	        }   
-    	   		     if (life != 5 || life != 3){
-      	  		        System.out.println("The man has dropped a cloak. Put it on?");
-      	  		        System.out.println("Y/N");
-      	  		      Scanner userIn1 = new Scanner(System.in);
-      		      	  playerB= userIn1.nextLine();
-      		      	  
-      	  		        {
-      	  		          if(playerB.equalsIgnoreCase("Y")){
-      		        		  System.out.println("You put on the cloak.");
-      		        	  }
-      		        	  else if(playerB.equalsIgnoreCase("N")){
-      		        		  System.out.println("You choose to not put on the cloak.");
-      		        		  System.exit(0);
-      		        		  }
-      	  		        }        
     	        }
     	        
       		  }
@@ -286,7 +275,7 @@ public static int health(int health){
           			System.out.println("Goodbye!");
           			
           		}
- 
+
            		  System.out.println("\n\nA guard finds you. He says that you are now being sent to "
            		  		+ "\n prison for Property Destruction. You attempt to run \n but get knocked out by the"
            		  		+ " guard."
@@ -326,27 +315,24 @@ public static int health(int health){
      	   	        	 int life = randomLif.nextInt(5) + 1;
      	   		        if (life == 5 || life == 3) {
      	   		        	System.out.println("You die");
+     	   		        	System.exit(0);
      	   		        }
      	   		        else {
      	   		        	System.out.println("You have shot the man!");
      	        }   
-     	   		    if (life != 5 || life != 3){
-     	  		        System.out.println("The man has dropped a cloak. Put it on?");
-     	  		        System.out.println("Y/N");
-     	  		      Scanner userIn1 = new Scanner(System.in);
-     		      	  playerB= userIn1.nextLine();
-     		      	  
-     	  		        {
-     	  		          if(playerB.equalsIgnoreCase("Y")){
-     		        		  System.out.println("You put on the cloak.");
-     		        	  }
-     		        	  else if(playerB.equalsIgnoreCase("N")){
-     		        		  System.out.println("You choose to not put on the cloak.");
-     		        		  System.exit(0);
-     		        		  }
-     	  		        }        
+     	   		  
      	        }
-           			  //You see a group of traders [dopesmoker image info here]
+     	        System.out.println("After shooting the man, you see more men in the distance. Walk over to them? ");
+     	       System.out.println("Y/N");
+    	        playerTrade= playerTnput.nextLine();
+    	        if(playerTrade.equalsIgnoreCase("Y")){
+          		  System.out.println("You walk over to the men.");
+    	        }
+    	        else{
+    	        	System.out.println("You stay still and die of dehydration.");
+    	        	health = 0;
+    	        	
+    	        }
            			  //make duels
            		  }
            		
@@ -365,6 +351,6 @@ public static int health(int health){
       		  }
       		  
 	}
-      		  }    
-	}
+	        
+	
 	}
