@@ -255,6 +255,8 @@ public static int health(int health){
 							int life1 = randomLi.nextInt(5) + 1;
        		   		        if (life1 == 5 || life1 == 3) {
        		   		        	System.out.println("He shot first!");
+       		   		        	System.out.println("You have died.");
+       		   		      System.out.println("You were a" + playerClass);
        		   		        	System.exit(0);
        		   		        }
        		   		        else {
@@ -361,7 +363,6 @@ public static int health(int health){
           		if (keypress == 0)
           		{
           			System.out.println("Goodbye!");
-          			
           		}
 
            		  System.out.println("\n\nA guard finds you. He says that you are now being sent to "
@@ -402,7 +403,8 @@ public static int health(int health){
      	   	        	System.out.println("You shoot!" );
      	   	        	 int life1 = randomLif.nextInt(5) + 1;
      	   		        if (life1 == 5 || life1 == 3) {
-     	   		        	System.out.println("You die");
+     	   		        	System.out.println("You have died!");
+     	   		        	System.out.println("You were a" + playerClass);
      	   		        	System.exit(0);
      	   		        }
      	   		        else {
@@ -410,7 +412,8 @@ public static int health(int health){
      	        }   
      	   		  
      	        }
-     	        System.out.println("After shooting the man, you see more men in the distance. Walk over to them? ");
+     	        System.out.println("After shooting the man, you see more men in the distance. "
+     	        		+ "\nWalk over to them? ");
      	       System.out.println("Y/N");
     	        playerTrade= playerTnput.nextLine();
     	        if(playerTrade.equalsIgnoreCase("Y")){
@@ -446,15 +449,11 @@ public static int health(int health){
    			     		  System.out.println("You look behind you and you cannot see the cave.");
    			     		  System.out.println("You continue walking.");
    			     		  System.out.println("You trip and sink into a sand dune.");
-   			     		  
    			     		 cause = "Sand Dune";
    			     		  System.out.println("What a sad day! You were a" + playerClass + "and you died in the desert becasue of a " + cause);
+   			     		  System.out.println("Game Over!");
    			     		  System.exit(0);
-   			     		  
-
-   			     		  
-   			     		  
-   			     		  }
+   			       }
    			   /*  		  System.out.println("They are fellow " + playerClass +"s. They give you a black robe and "
    			     		  		+ "\nInvite you to their doom cult. "
    			     		  		+ "\nDo you join? Y/N" ); */
@@ -463,9 +462,9 @@ public static int health(int health){
    			        		  System.out.println("You choose to die in the desert");
    			        		  System.out.println("The End!");
    			        		  	System.exit(0);
-  		 	        }
-   			       }
+   			     		  }
   			 	    }
+  			       }
   			 	    
    			       
           		  System.out.println("You choose to enter their death cult");
@@ -473,16 +472,14 @@ public static int health(int health){
 	        		  System.out.println("kill -9 pid of " + playerClass);
 	        		  System.out.println("The End!");
     	        }
-    	        }
+           		  }
     	        else{
     	        	System.out.println("You stay still and die of dehydration.");
     	        	health = 0;
     	        	
     	        }
-           			  //make duels
-           		  }
-           		
      	        }
+      		  }
      	        else{
      	        	System.out.println("You choose to stay out of the sewers.");
      	     	  //do this instead of exiting.
@@ -497,9 +494,7 @@ public static int health(int health){
      	        	//put back options from beginning.
      	        	//you can do something with booleans for this.
      	        }
-      		  }
-      		  
     	        }
-	        
       		  }
 	}
+}
