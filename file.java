@@ -1,3 +1,4 @@
+package project;
 import java.util.Random;
 import java.util.Scanner;
 public class day {
@@ -29,11 +30,17 @@ public static int health(int health){
 		 Scanner playerInp = new Scanner(System.in);
 		 Scanner playerTnput = new Scanner(System.in);
 		 Scanner userIn = new Scanner(System.in);
+		 Scanner playerEnput = new Scanner(System.in);
+		 Scanner playerTrad = new Scanner(System.in);
+		 Scanner playerDi = new Scanner(System.in);
+		 
 		 //String playerB; 
 		 boolean cave = false;
          boolean alley = false;
          boolean battle = false;
+         boolean dcult = false;
          boolean sewer = false;
+         boolean desert = false;
          boolean prisonEscape = false;
          int health = 100;
 	        System.out.println("Choose a class\n1: Normie \n2: Itchsmaele \n3: Wißord");
@@ -49,7 +56,9 @@ public static int health(int health){
 	          String playerAns;
 	          String playerAnse;
 	          String playerTrade;
-	          
+	          String playerDes;
+	          String playerExit;
+	          String playerTr;
 	        // Start switch statement using choice variable
 	        switch(choice){
 	        case 1:
@@ -192,10 +201,62 @@ public static int health(int health){
     	   		        	System.out.println("You die");
     	   		        }
     	   		        else {
-    	   		        	System.out.println("You beaten the man.");
+    	   		        	System.out.println("You have beaten the man.");
     	        }   
-    	        }
-    	        
+    	   		     System.out.println("You continue to go deeper into the cave.");
+    	    	        System.out.println("You continue to go even deeper into the cave.");
+    	    	        System.out.println("There is no light left in the cave.");
+    	    	        System.out.println("You continue to move forward.");
+    	    	        System.out.println("You go deeper.");
+    	    	        System.out.println("You start to see a light!.");
+    	    	        System.out.println("You find an exit! Go through? Y/N");
+    	    	        playerExit= playerEnput.nextLine();
+    	    	       
+    					if (playerExit.equalsIgnoreCase("Y")){
+    	    	        	System.out.println("You emerge from the cave! The sun hurts your eyes, but you swiftly recover.");
+    	    	        	desert = true;
+    	    	        }
+    	    	        else {
+    	    	        	System.out.println("You attempt to go back into the cave, but trip and fall out!");
+    	    	        	desert = true;
+    	    	        }
+    					 System.out.println("You are now alone in the barren desert. You find a revolver full of bullets.");
+    	      			  System.out.println("You see a man who is about to shoot you. You pull out your firearm and shoot back");
+    	      		      if (battle = true){
+       		   	        	System.out.println("You shoot!" );
+       		   	      Random randomLi = new Random();
+							int life1 = randomLi.nextInt(5) + 1;
+       		   		        if (life1 == 5 || life1 == 3) {
+       		   		        	System.out.println("He shot first!");
+       		   		        	System.exit(0);
+       		   		        }
+       		   		        else {
+       		   		        	System.out.println("You have shot the man!");
+       		        }   
+       		   		   System.out.println("After shooting the man, you see more men in the distance."
+       		   		   		+ "\nWalk over to them? ");
+       			       System.out.println("Y/N");
+       			       
+       			    
+       			       playerTr = playerTrad.nextLine();
+       			       if(playerTr.equalsIgnoreCase("Y")){
+       			     		  System.out.println("You walk over to the men.");
+       			     		  System.out.println("They are fellow " + playerClass +"s. They give you a black robe and "
+       			     		  		+ "\nInvite you to their doom cult. Do you join? Y/N" );
+       			     		 playerDes= playerDi.nextLine();
+       			 	        if(playerDes.equalsIgnoreCase("Y")){
+       			        		  System.out.println("You choose to enter their death cult");
+       			        		  System.out.println("You achieve enlightenment and realize you are in a computer program");
+       			        		  System.out.println("The End!");
+       			        		   dcult = true;
+       		 	        }
+       			 	    else if(playerDes.equalsIgnoreCase("N")){
+       	        		  System.out.println("You choose to not enter their death cult. They rob you and you die "
+       	        		  		+ "\n dehydration in the desert.");
+       	        		  System.exit(0);
+       		 	        }
+       		   		        
+  	        }
       		  }
       		  else if (cave == false && alley == true ){
       			  System.out.println("You are now in an alley.");
@@ -312,8 +373,8 @@ public static int health(int health){
      	        
      	        if (battle = true){
      	   	        	System.out.println("You shoot!" );
-     	   	        	 int life = randomLif.nextInt(5) + 1;
-     	   		        if (life == 5 || life == 3) {
+     	   	        	 int life1 = randomLif.nextInt(5) + 1;
+     	   		        if (life1 == 5 || life1 == 3) {
      	   		        	System.out.println("You die");
      	   		        	System.exit(0);
      	   		        }
@@ -327,7 +388,15 @@ public static int health(int health){
     	        playerTrade= playerTnput.nextLine();
     	        if(playerTrade.equalsIgnoreCase("Y")){
           		  System.out.println("You walk over to the men.");
+          		  
+          		  //TODO: COPY THE TEXT FROM EARLIER!
+          		  
+          		  
+          		  System.out.println("You choose to enter their death cult");
+	        		  System.out.println("You achieve enlightenment and realize you are in a computer program");
+	        		  System.out.println("The End!");
     	        }
+    	        
     	        else{
     	        	System.out.println("You stay still and die of dehydration.");
     	        	health = 0;
@@ -350,7 +419,8 @@ public static int health(int health){
      	        }
       		  }
       		  
-	}
+    	        }
 	        
-	
+      		  }
 	}
+}
