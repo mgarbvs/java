@@ -256,7 +256,8 @@ public static int health(int health){
        		   		        if (life1 == 5 || life1 == 3) {
        		   		        	System.out.println("He shot first!");
        		   		        	System.out.println("You have died.");
-       		   		      System.out.println("You were a" + playerClass);
+       		   		      System.out.println("You were a " + playerClass);
+       		   		      System.out.println("The End!");
        		   		        	System.exit(0);
        		   		        }
        		   		        else {
@@ -404,7 +405,7 @@ public static int health(int health){
      	   	        	 int life1 = randomLif.nextInt(5) + 1;
      	   		        if (life1 == 5 || life1 == 3) {
      	   		        	System.out.println("You have died!");
-     	   		        	System.out.println("You were a" + playerClass);
+     	   		        	System.out.println("You were a " + playerClass);
      	   		        	System.exit(0);
      	   		        }
      	   		        else {
@@ -451,6 +452,7 @@ public static int health(int health){
    			     		  System.out.println("You trip and sink into a sand dune.");
    			     		 cause = "Sand Dune";
    			     		  System.out.println("What a sad day! You were a" + playerClass + "and you died in the desert becasue of a " + cause);
+   			     		  System.out.println("The End!");
    			     		  System.out.println("Game Over!");
    			     		  System.exit(0);
    			       }
