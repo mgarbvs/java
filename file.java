@@ -1,5 +1,23 @@
-package project;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.AbstractCollection;
+import java.applet.*;
+import java.awt.*;
+import java.awt.color.*;
+import java.awt.image.renderable.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.datatransfer.*;
+import java.beans.*;
+import java.awt.image.renderable.*;
+import java.nio.file.attribute.*;
+import javax.swing.JFrame;
+import java.awt.geom.*;
 import java.util.Scanner;
 public class day {
 	public static float exponential(float base, float log){
@@ -33,7 +51,8 @@ public static int health(int health){
 		 Scanner playerEnput = new Scanner(System.in);
 		 Scanner playerTrad = new Scanner(System.in);
 		 Scanner playerDi = new Scanner(System.in);
-		 
+		 Scanner playerEn = new Scanner(System.in);
+		 Scanner playerDie = new Scanner(System.in);
 		 //String playerB; 
 		 boolean cave = false;
          boolean alley = false;
@@ -59,6 +78,8 @@ public static int health(int health){
 	          String playerDes;
 	          String playerExit;
 	          String playerTr;
+	          String playerEnd;
+	          String playerEg;
 	        // Start switch statement using choice variable
 	        switch(choice){
 	        case 1:
@@ -69,12 +90,12 @@ public static int health(int health){
 	        case 2:
 	            // This will run if user types 2
 	            System.out.println("You picked Itchsmaele");
-	            playerClass = "itch";
+	            playerClass = "Itchsmaele";
 	            break;
 	        case 3:
 	            // This will run if user types 3
 	            System.out.println("You picked Wißord");
-	            playerClass = "wiz";
+	            playerClass = "Wißord";
 	            break;
 	        default:
 	            // This will run if user types any other number
@@ -86,10 +107,13 @@ public static int health(int health){
 	            		+ "\n  You don't get to bring friends."
 	            		+ "\n   They are not my friends."
 	            		+ "\n Don't worry, no charge for them.");
+	            System.out.println("Why would I want them?");
+	            System.out.println("They were trying to catch your prize");
 	            System.out.println("\nY/N");
 	      	  playerA= playerInput.nextLine();
 	            if(playerA.equalsIgnoreCase("Y")){
 	        		  System.out.println("You choose to crash the plane.");
+	        		  System.exit(0);
 	        	  }
 	        	  else if(playerA.equalsIgnoreCase("N")){
 	        		  System.out.println("You choose to file the flight plan with the agency. You die because of a papercut");
@@ -248,10 +272,10 @@ public static int health(int health){
        			        		  System.out.println("You choose to enter their death cult");
        			        		  System.out.println("You achieve enlightenment and realize you are in a computer program");
        			        		  System.out.println("The End!");
-       			        		   dcult = true;
+       			        		  // dcult = true;
        		 	        }
        			 	    else if(playerDes.equalsIgnoreCase("N")){
-       	        		  System.out.println("You choose to not enter their death cult. They rob you and you die "
+       	        		  System.out.println("You choose to not enter their death cult. They rob you and you die of"
        	        		  		+ "\n dehydration in the desert.");
        	        		  System.exit(0);
        		 	        }
@@ -271,7 +295,7 @@ public static int health(int health){
            		  System.out.println("You see a computer on the side of the sewers.\n\n");
            		  System.out.println("You gaze at the screen:");
            		  Random randomGenerator = new Random();
-          		System.out.println("Welcome to Garbus Instruments-42 Calculator");
+          		System.out.println("Welcome to Garbus Instruments-42 Calculator, created 5/30/16.");
           		int keypress;
           		double keydub;
           		Scanner keyboard = new Scanner(System.in);
@@ -284,7 +308,7 @@ public static int health(int health){
           		
           		
           		if (keypress > 6){
-          			System.out.println("Choose a valid number. Try rm -rf /*");
+          			System.out.println("You start to punch the calculator! It is now destroyed.");
           			System.exit(0);
           		}
           		if (keypress == 1)
@@ -387,16 +411,39 @@ public static int health(int health){
      	       System.out.println("Y/N");
     	        playerTrade= playerTnput.nextLine();
     	        if(playerTrade.equalsIgnoreCase("Y")){
-          		  System.out.println("You walk over to the men.");
+          		  System.out.println("You choose to walk over to the men.");
           		  
           		  //TODO: COPY THE TEXT FROM EARLIER!
+          		  
+          		 
+  			       playerEnd = playerEn.nextLine();
+  			       if(playerEnd.equalsIgnoreCase("Y")){
+  			     		  System.out.println("You walk over to the men.");
+  			     		  System.out.println("They are fellow " + playerClass +"s. They give you a black robe and "
+  			     		  		+ "\nInvite you to their doom cult. "
+  			     		  		+ "\nDo you join? Y/N" );
+  			     		 playerEg= playerDie.nextLine();
+  			 	        if(playerEg.equalsIgnoreCase("Y")){
+  			        		  System.out.println("You choose to enter their death cult");
+  			        		  System.out.println("You achieve enlightenment and "
+  			        		  		+ "\nrealize you are in a computer program");
+  			        		  System.out.println("The End!");
+  			        		  	System.exit(0);
+  		 	        }
+  			 	    else if(playerEg.equalsIgnoreCase("N")){
+  	        		  System.out.println("You choose to not enter their death cult. They rob you of all of your belongings.");
+  	        		  
+  		 	        }
+          		  
+          		  
           		  
           		  
           		  System.out.println("You choose to enter their death cult");
 	        		  System.out.println("You achieve enlightenment and realize you are in a computer program");
+	        		  System.out.println("kill -9 pid of " + playerClass);
 	        		  System.out.println("The End!");
     	        }
-    	        
+    	        }
     	        else{
     	        	System.out.println("You stay still and die of dehydration.");
     	        	health = 0;
@@ -413,6 +460,9 @@ public static int health(int health){
              		  		+ "\n prison for Property Destruction. You attempt to run \n but get knocked out by the"
              		  		+ " guard."
              		  		+ "\n"); 
+             		  System.out.println("You get sent to jail.");
+             		  System.out.println("The End!");
+             		  System.exit(0);
              		  
      	        	//put back options from beginning.
      	        	//you can do something with booleans for this.
