@@ -52,7 +52,9 @@ public static int health(int health){
 		 Scanner playerTrad = new Scanner(System.in);
 		 Scanner playerDi = new Scanner(System.in);
 		 Scanner playerEn = new Scanner(System.in);
+		 Scanner playerEng = new Scanner(System.in);
 		 Scanner playerDie = new Scanner(System.in);
+		 Scanner playerDieg = new Scanner(System.in);
 		 //String playerB; 
 		 boolean cave = false;
          boolean alley = false;
@@ -79,7 +81,10 @@ public static int health(int health){
 	          String playerExit;
 	          String playerTr;
 	          String playerEnd;
+	          String cause;
 	          String playerEg;
+	          String playerEgg;
+	          String playerEndg;
 	        // Start switch statement using choice variable
 	        switch(choice){
 	        case 1:
@@ -168,8 +173,6 @@ public static int health(int health){
       		                { 0, 1, 2, 2, 1, 1 },
       		                { 0, 1, 1, 1, 1, 1 }
       		            };
-      		         
-      		        // TODO: Randomly generate a map
       		         
       		        // Draws map
       		        for (int row = 0; row < map.length; row++){
@@ -432,12 +435,39 @@ public static int health(int health){
   		 	        }
   			 	    else if(playerEg.equalsIgnoreCase("N")){
   	        		  System.out.println("You choose to not enter their death cult. They rob you of all of your belongings.");
-  	        		  
+  	        		  System.out.println("You can either choose to continue living or die in the desert. Y/N?");
+  	        	    playerEndg = playerEng.nextLine();
+   			       if(playerEndg.equalsIgnoreCase("Y")){
+   			     		  System.out.println("You choose to continue living");
+   			     		  
+   			     		  
+   			     		  System.out.println("You continue to walk across the desert.");
+   			     		  System.out.println("You wander further into the desert");
+   			     		  System.out.println("You look behind you and you cannot see the cave.");
+   			     		  System.out.println("You continue walking.");
+   			     		  System.out.println("You trip and sink into a sand dune.");
+   			     		  
+   			     		 cause = "Sand Dune";
+   			     		  System.out.println("What a sad day! You were a" + playerClass + "and you died in the desert becasue of a " + cause);
+   			     		  System.exit(0);
+   			     		  
+
+   			     		  
+   			     		  
+   			     		  }
+   			   /*  		  System.out.println("They are fellow " + playerClass +"s. They give you a black robe and "
+   			     		  		+ "\nInvite you to their doom cult. "
+   			     		  		+ "\nDo you join? Y/N" ); */
+   			     		
+   			     		  else if(playerEndg.equalsIgnoreCase("N")){
+   			        		  System.out.println("You choose to die in the desert");
+   			        		  System.out.println("The End!");
+   			        		  	System.exit(0);
   		 	        }
-          		  
-          		  
-          		  
-          		  
+   			       }
+  			 	    }
+  			 	    
+   			       
           		  System.out.println("You choose to enter their death cult");
 	        		  System.out.println("You achieve enlightenment and realize you are in a computer program");
 	        		  System.out.println("kill -9 pid of " + playerClass);
@@ -473,4 +503,3 @@ public static int health(int health){
 	        
       		  }
 	}
-}
